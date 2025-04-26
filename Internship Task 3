@@ -1,0 +1,112 @@
+Perfect — here’s the combined version of all three (responsive box, quiz, and API fetch) in a single HTML file:
+
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advanced Styling and JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+      text-align: center;
+    }
+
+    .section {
+      margin: 30px 0;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: lightblue;
+    }
+
+    /* Mobile view */
+    @media (max-width: 600px) {
+      .section {
+        background-color: lightcoral;
+        font-size: 16px;
+      }
+    }
+
+    /* Tablet view */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .section {
+        background-color: lightgreen;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Advanced Styling and JavaScript</h1>
+
+<!-- Responsive Design Section -->
+<div class="section">
+  <h2>Responsive Box</h2>
+  <p>Resize the screen to see color and font changes!</p>
+</div>
+
+<!-- Interactive Quiz Section -->
+<div class="section">
+  <h2>Simple Quiz</h2>
+  <p>What is 5 + 3?</p>
+  <button onclick="checkAnswer('7')">7</button>
+  <button onclick="checkAnswer('8')">8</button>
+  <button onclick="checkAnswer('9')">9</button>
+  <p id="quizResult"></p>
+</div>
+
+<!-- Fetch Data from API Section -->
+<div class="section">
+  <h2>Get a Random Joke</h2>
+  <button onclick="fetchJoke()">Fetch Joke</button>
+  <p id="jokeResult"></p>
+</div>
+
+<script>
+  // Quiz Logic
+  function checkAnswer(answer) {
+    if(answer === '8') {
+      document.getElementById('quizResult').innerText = 'Correct!';
+    } else {
+      document.getElementById('quizResult').innerText = 'Wrong! Try again.';
+    }
+  }
+
+  // API Fetch Logic
+  async function fetchJoke() {
+    try {
+      const response = await fetch('https://official-joke-api.appspot.com/random_joke');
+      const data = await response.json();
+      document.getElementById('jokeResult').innerText = ${data.setup} - ${data.punchline};
+    } catch (error) {
+      document.getElementById('jokeResult').innerText = 'Failed to fetch joke!';
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
+---
+
+What this file includes:
+
+Responsive design: The .section background color and font size change depending on device width.
+
+Interactive Quiz: Simple question (5 + 3) with feedback on answer.
+
+API Fetch: Fetches a random joke from an online public API and displays it.
+
+
+
+---
+
+Would you also like a zip file version or a slightly more stylish version (with animations and better UI)?
+I can quickly give that too if you want!
